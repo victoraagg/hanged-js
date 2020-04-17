@@ -3,7 +3,6 @@ var aciertos = []
 var maxFallos = 5
 var fallos = 0
 var palabraSeleccionada = sacarPalabraAleatoria()
-console.log(palabraSeleccionada);
 
 do{
     var nuevaLetra = solicitarLetra()
