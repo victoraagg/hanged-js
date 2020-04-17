@@ -7,7 +7,7 @@ var palabraSeleccionada = sacarPalabraAleatoria()
 do{
     var nuevaLetra = solicitarLetra()
     if(esAcierto(nuevaLetra)){
-        aciertos.push(nuevaLetra)
+        insertarAcierto(nuevaLetra)
     }else{
         fallos++
     }
@@ -65,13 +65,22 @@ function esAcierto(letra) {
     return false
 }
 
+function insertarAcierto(letra) {
+    var palabras = palabraSeleccionada.split('')
+    for(var i = 0; i < palabraSeleccionada.length; ++i){
+        if(palabras[i] == letra) {
+            aciertos.push(letra);
+        }
+    }
+}
+
 function juegoFinalizado() {
     if(fallos == maxFallos){
-        alert('El juego ha finalizado\nNo has acertado la palabra :(')
+        alert('El juego ha finalizado\nNo has acertado la palabra')
         return true
     }
     if(aciertos.length == palabraSeleccionada.length) {
-        alert('El juego ha finalizado\n¡Has acertado la palabra!')
+        alert('Enhorabuena\n¡Has acertado la palabra!')
         return true
     } else {
         return false
